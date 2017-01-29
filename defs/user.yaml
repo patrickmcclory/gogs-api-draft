@@ -1,3 +1,5 @@
+x-base:
+  $ref: 'https://github.com/patrickmcclory/gogs-api-draft/tree/master/defs/base.yaml#'
 CreateUserOption:
   allOf:
     - $ref: '#/CreateUserBase'
@@ -49,24 +51,16 @@ CreateUserBase:
       type: string
       maxLength: 255
 Comment:
-  type: object
-  properties:
-    ID:
-      type: number
-      format: int64
-    HTMLURL:
-      type: string
-    Poster:
-      $ref: '#/User'
-    Body:
-      type: string
-    Created:
-      type: string
-      format: date-time
-    Updated:
-      type: string
-      format: date-time
-
+  allOf:
+    - $ref: '#/x-base/ModelBase'
+    - type: object
+      properties:
+        HTMLURL:
+          type: string
+        Poster:
+          $ref: '#/User'
+        Body:
+          type: string
 User:
   type: object
   properties:
@@ -81,8 +75,6 @@ User:
       type: string
     AvatarUrl:
       type: string
-
-
 Email:
   type: object
   properties:

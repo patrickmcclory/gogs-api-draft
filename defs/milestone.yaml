@@ -1,5 +1,5 @@
 x-base:
-  $ref: 'urlgoeshere#'
+  $ref: 'https://github.com/patrickmcclory/gogs-api-draft/tree/master/defs/base.yaml#'
 CreateMilestoneOption:
   type: object
   properties:
