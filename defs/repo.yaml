@@ -194,9 +194,9 @@ PayloadCommit:
     URL:
       type: string
     Author:
-      $ref: '#/definitions/PayloadUser'
+      $ref: '#/PayloadUser'
     Committer:
-      $ref: '#/definitions/PayloadUser'
+      $ref: '#/PayloadUser'
     Timestamp:
       type: string
       format: date-time
