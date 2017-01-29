@@ -2,8 +2,6 @@ x-base:
   $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/defs/base.yaml#'
 x-user:
   $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/defs/user.yaml#'
-x-pr:
-  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/defs/pr.yaml#'
 RepoBase:
   type: object
   properties:
@@ -186,6 +184,15 @@ ChangesPayload:
       $ref: '#/ChangesFromPayload'
     Body:
       $ref: '#/ChangesFromPayload'
+PayloadUser:
+  type: object
+  properties:
+    Name:
+      type: string
+    Email:
+      type: string
+    UserName:
+      type: string
 PayloadCommit:
   type: object
   properties:
@@ -196,9 +203,9 @@ PayloadCommit:
     URL:
       type: string
     Author:
-      $ref: '#/x-pr/PayloadUser'
+      $ref: '#/PayloadUser'
     Committer:
-      $ref: '#/x-pr/PayloadUser'
+      $ref: '#/PayloadUser'
     Timestamp:
       type: string
       format: date-time
