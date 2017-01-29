@@ -1,5 +1,5 @@
 x-base:
-  $ref: 'https://github.com/patrickmcclory/gogs-api-draft/tree/master/defs/base.yaml#'
+  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/defs/base.yaml#'
 CreateUserOption:
   allOf:
     - $ref: '#/CreateUserBase'

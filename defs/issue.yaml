@@ -1,7 +1,7 @@
 x-base:
-  $ref: 'https://github.com/patrickmcclory/gogs-api-draft/tree/master/defs/base.yaml#'
+  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/defs/base.yaml#'
 x-milestone:
-  $ref: 'https://github.com/patrickmcclory/gogs-api-draft/tree/master/defs/milestone.yaml#'
+  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/defs/milestone.yaml#'
 Issue:
   allOf:
     - $ref: '#/x-base/ModelBase'

@@ -1,13 +1,13 @@
 x-base:
-  $ref: 'https://github.com/patrickmcclory/gogs-api-draft/tree/master/defs/base.yaml#'
+  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/defs/base.yaml#'
 x-milestone:
-  $ref: 'https://github.com/patrickmcclory/gogs-api-draft/tree/master/defs/milestone.yaml#'
+  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/defs/milestone.yaml#'
 x-user:
-  $ref: 'https://github.com/patrickmcclory/gogs-api-draft/tree/master/defs/user.yaml#'
+  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/defs/user.yaml#'
 x-issue:
-  $ref: 'https://github.com/patrickmcclory/gogs-api-draft/tree/master/defs/issue.yaml#'
+  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/defs/issue.yaml#'
 x-repo:
-  $ref: 'https://github.com/patrickmcclory/gogs-api-draft/tree/master/defs/repo.yaml#'
+  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/defs/repo.yaml#'
 PullRequestMeta:
   type: object
   properties:
