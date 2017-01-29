@@ -2,6 +2,8 @@ x-base:
   $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/defs/base.yaml#'
 x-user:
   $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/defs/user.yaml#'
+x-pr:
+  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/defs/pr.yaml#'
 RepoBase:
   type: object
   properties:
@@ -155,7 +157,7 @@ PushPayload:
       items:
         $ref: '#/PayloadCommit'
     Repo:
-      $ref: '#/x-repo/Repo'
+      $ref: '#/x-repo/Repository'
     Pusher:
       $ref: '#/x-user/User'
     Sender:
@@ -194,9 +196,9 @@ PayloadCommit:
     URL:
       type: string
     Author:
-      $ref: '#/PayloadUser'
+      $ref: '#/x-pr/PayloadUser'
     Committer:
-      $ref: '#/PayloadUser'
+      $ref: '#/x-pr/PayloadUser'
     Timestamp:
       type: string
       format: date-time
