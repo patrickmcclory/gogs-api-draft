@@ -1,0 +1,38 @@
+x-base:
+  $ref: 'urlgoeshere#'
+CreateMilestoneOption:
+  type: object
+  properties:
+    Title:
+      type: string
+    Description:
+      type: string
+    Deadline:
+      type: string
+      format: date-time
+EditMilestoneOption:
+  allOf:
+    - $ref: '#/CreateMilestoneOption'
+    - type: object
+      properties:
+        State:
+          $ref: '#/x-base/StateType'
+Milestone:
+  allOf:
+    - $ref: '#/EditMilestoneOption'
+    - type: object
+      properties:
+        ID:
+          type: number
+          format: int64
+          readOnly: true
+        OpenIssues:
+          type: integer
+          format: int32
+        ClosedIssues:
+          type: integer
+          format: int32
+        Closed:
+          type: string
+          format: date-time
+          readOnly: true

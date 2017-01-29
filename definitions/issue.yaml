@@ -1,0 +1,82 @@
+x-base:
+  $ref: 'urlgoeshere#'
+x-milestone:
+  $ref: 'urlgoeshere#'
+Issue:
+  allOf:
+    - $ref: '#/x-base/ModelBase'
+    - type: object
+      properties:
+        Index:
+          type: number
+          format: int64
+        Poster:
+          type: string #user-ref
+        Title:
+          type: string
+        Body:
+          type: string
+        Labels:
+          type: array
+          items:
+            $ref: '#/Label'
+        Milestone:
+          $ref: '#/x-milestone/Milestone'
+        Assignee:
+          type: string
+        State:
+          $ref: '#/x-base/StateType'
+        Comments:
+          type: integer
+          format: int32
+ListIssueOption:
+  type: object
+  properties:
+    Page:
+      type: integer
+      format: int32
+    State:
+      type: string
+CreateIssueOption:
+  allOf:
+    - $ref: '#/IssueOperationBase'
+    - type: object
+      properties:
+        Labels:
+          type: array
+          items:
+            type: number
+            format: int64
+        Closed:
+          type: boolean
+IssueOperationBase:
+  type: object
+  properties:
+    Title:
+      type: string
+    Body:
+      type: string
+    Assignee:
+      type: string
+    Milestone:
+      type: number
+      format: int64
+EditIssueOption:
+  allOf:
+    - $ref: '#/IssueOperationBase'
+    - type: object
+      properties:
+        State:
+          type: string
+Label:
+  type: object
+  properties:
+    ID:
+      type: number
+      format: int64
+    Name:
+      type: string
+    Color:
+      type: string
+    URL:
+      type: string

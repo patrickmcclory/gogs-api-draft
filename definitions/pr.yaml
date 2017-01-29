@@ -1,0 +1,94 @@
+x-base:
+  $ref: 'url#'
+x-milestone:
+  $ref: 'milestone.yaml#'
+x-user:
+  $ref: 'user.yaml#'
+x-issue:
+  $ref: 'issue.yaml#'
+x-repo:
+  $ref: 'repo.yaml#'
+PullRequestMeta:
+  type: object
+  properties:
+    HasMerged:
+      type: boolean
+    Merged:
+      type: string
+      format: date-time
+PullRequest:
+  type: object
+  properties:
+    ID:
+      type: number
+      format: int64
+    Index:
+      type: number
+      format: int64
+    Poster:
+      $ref: '#/x-user/User'
+    Title:
+      type: string
+    Body:
+      type: string
+    Labels:
+      type: array
+      items:
+        $ref: '#/x-issue/Label'
+    Milestone:
+      $ref: '#/x-milestone/Milestone'
+    Assignee:
+      type: string ## user
+    State:
+      $ref: '#/x-base/StateType'
+    Comments:
+      type: integer
+      format: int32
+    HeadBranch:
+      type: string
+    HeadRepo:
+      $ref: '#/x-repo/Repository'
+    BaseBranch:
+      type: string
+    BaseRepo:
+      $ref: '#/x-repo/Repository'
+    HTMLURL:
+      type: string
+    Mergeable:
+      type: boolean
+    HasMerged:
+      type: boolean
+    Merged:
+      type: string
+      format: date-time
+    MergeCommitId:
+      type: string
+    MergedBy:
+      $ref: '#/x-user/User'
+PayloadUser:
+  type: object
+  properties:
+    Name:
+      type: string
+    Email:
+      type: string
+    UserName:
+      type: string
+PullRequestPayload:
+  type: object
+  properties:
+    Secret:
+      type: string
+    Action:
+      $ref: '#/x-repo/HookIssueAction'
+    Index:
+      type: number
+      format: int64
+    Changes:
+      $ref: '#/x-repo/ChangesPayload'
+    PullRequest:
+      $ref: '#/PullRequest'
+    Repository:
+      $ref: '#/x-repo/Repository'
+    Sender:
+      $ref: '#/x-user/User'

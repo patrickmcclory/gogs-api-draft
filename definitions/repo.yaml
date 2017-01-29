@@ -1,0 +1,235 @@
+x-base:
+  $ref: 'urlgoeshere#'
+x-user:
+  $ref: 'urlgoeshere#'
+RepoBase:
+  type: object
+  properties:
+    Name:
+      type: string
+    Description:
+      type: string
+    Private:
+      type: boolean
+CreateRepoOption:
+  allOf:
+    - $ref: '#/RepoBase'
+    - type: object
+      properties:
+        AutoInit:
+          type: boolean
+        GitIgnores:
+          type: string
+        License:
+          type: string
+        Readme:
+          type: string
+MigrateRepoOption:
+  type: object
+  properties:
+    CloneAddr:
+      type: string
+    AuthUsername:
+      type: string
+    AuthPassword:
+      type: string
+    UID:
+      type: integer
+      format: int32
+    RepoName:
+      type: string
+    Mirror:
+      type: boolean
+    Private:
+      type: boolean
+    Description:
+      type: string
+Repository:
+  allOf:
+    - $ref: '#/x-base/ModelBase'
+    - $ref: '#/RepoBase'
+    - type: object
+      properties:
+        Owner:
+          $ref: '#/x-user/User'
+        FullName:
+          type: string
+        Fork:
+          type: boolean
+        HTMLURL:
+          type: string
+        SSHURL:
+          type: string
+        CloneURL:
+          type: string
+        Website:
+          type: string
+        Stars:
+          type: integer
+          format: int32
+        Forks:
+          type: integer
+          format: int32
+        Watchers:
+          type: integer
+          format: int32
+        OpenIssues:
+          type: integer
+          format: int32
+        DefaultBranch:
+          type: string
+        Permissions:
+          $ref: '#/Permission'
+Permission:
+  type: object
+  properties:
+    Admin:
+      type: boolean
+    Push:
+      type: boolean
+    Pull:
+      type: boolean
+Hook:
+  allOf:
+  - $ref: '#/x-base/ModelBase'
+  - $ref: '#/HookBase'
+  - type: object
+    properties:
+      Type:
+        type: string
+      URL:
+        type: string
+HookBase:
+  type: object
+  properties:
+  Config:
+    $ref: '#/x-base/MapString'
+  Events:
+    type: array
+    items:
+      type: string
+EditHookOption:
+  allOf:
+  - $ref: '#/HookBase'
+  - type: object
+    properties:
+      Active:
+        type: boolean
+CreateHookOption:
+  allOf:
+  - $ref: '#/HookBase'
+  - type: object
+    properties:
+      Type:
+        type: string
+      Active:
+        type: boolean
+CreatePayload:
+  type: object
+  properties:
+    Secret:
+      type: string
+    Ref:
+      type: string
+    RefType:
+      type: string
+    Repo:
+      $ref: '#/x-repo/Repository'
+    Sender:
+      $ref: '#/x-user/User'
+PushPayload:
+  type: object
+  properties:
+    Secret:
+      type: string
+    Ref:
+      type: string
+    Before:
+      type: string
+    After:
+      type: string
+    CompareUrl:
+      type: string
+    Commits:
+      type: array
+      items:
+        $ref: '#/PayloadCommit'
+    Repo:
+      $ref: '#/x-repo/Repo'
+    Pusher:
+      $ref: '#/x-user/User'
+    Sender:
+      $ref: '#/x-user/User'
+HookIssueAction:
+  type: string
+  enum:
+    - opened
+    - closed
+    - reopened
+    - edited
+    - assigned
+    - unassigned
+    - label_updated
+    - label_cleared
+    - synchronized
+ChangesFromPayload:
+  type: object
+  properties:
+    From:
+      type: string
+ChangesPayload:
+  type: object
+  properties:
+    Title:
+      $ref: '#/ChangesFromPayload'
+    Body:
+      $ref: '#/ChangesFromPayload'
+PayloadCommit:
+  type: object
+  properties:
+    ID:
+      type: string
+    Message:
+      type: string
+    URL:
+      type: string
+    Author:
+      $ref: '#/definitions/PayloadUser'
+    Committer:
+      $ref: '#/definitions/PayloadUser'
+    Timestamp:
+      type: string
+      format: date-time
+Branch:
+  type: object
+  properties:
+    Name:
+      type: string
+    Commit:
+      $ref: '#/PayloadCommit'
+AddCollaboratorOption:
+  type: object
+  properties:
+    Permission:
+      type: string
+Payloader:
+  type: object
+  properties:
+    Name:
+      type: string
+    Email:
+      type: string
+    UserName:
+      type: string
+CreateAccessTokenOption:
+  type: object
+  properties:
+    Name:
+      type: string
+AccessToken:
+  allOf:
+    - $ref: '#/CreateAccessTokenOption'
+    - type: object
+      properties:
+        Sha1:
+          type: string

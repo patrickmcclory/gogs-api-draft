@@ -1,0 +1,55 @@
+OrgTeam:
+  allOf:
+    - $ref: '#/CreateTeamOption'
+    - type: object
+      properties:
+        ID:
+          type: number
+          format: int64
+CreateTeamOption:
+  type: object
+  properties:
+    Name:
+      type: string
+    Description:
+      type: string
+    Permission:
+      type: string
+Organization:
+  type: object
+  properties:
+    ID:
+      type: number
+      format: int64
+    UserName:
+      type: string
+    FullName:
+      type: string
+    AvatarUrl:
+      type: string
+    Description:
+      type: string
+    Website:
+      type: string
+    Location:
+      type: string
+CreateOrgOption:
+  allOf:
+    - $ref: '#/EditOrgOption'
+    - type: object
+      properties:
+        UserName:
+          type: string
+EditOrgOption:
+  type: object
+  properties:
+    FullName:
+      type: string
+    AvatarUrl:
+      type: string
+    Description:
+      type: string
+    Website:
+      type: string
+    Location:
+      type: string

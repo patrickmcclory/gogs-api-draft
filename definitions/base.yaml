@@ -1,0 +1,21 @@
+ModelBase:
+  type: object
+  properties:
+    ID:
+      type: number
+      format: int64
+    Created:
+      type: string
+      format: date-time
+    Updated:
+      type: string
+      format: date-time
+StateType:
+  type: string
+  enum:
+    - open
+    - closed
+MapString:
+  type: object
+  additionalProperties:
+    type: string

@@ -1,0 +1,114 @@
+CreateUserOption:
+  allOf:
+    - $ref: '#/CreateUserBase'
+    - type: object
+      properties:
+        SendNotify:
+          type: boolean
+EditUserOption:
+  allOf:
+    - $ref: '#/CreateUserBase'
+    - type: object
+      properties:
+        Website:
+          type: string
+          maxLength: 50
+        Location:
+          type: string
+          maxLength: 50
+        Active:
+          type: boolean
+        AllowGitHook:
+          type: boolean
+        AllowImportLocal:
+          type: boolean
+        MaxRepoCreation:
+          type: integer
+          format: int32
+CreateUserBase:
+  type: object
+  required:
+    - Username
+    - Email
+  properties:
+    SourceID:
+      type: number
+      format: int64
+    LoginName:
+      type: string
+    Username:
+      type: string
+      maxLength: 35
+    FullName:
+      type: string
+      maxLength: 100
+    Email:
+      type: string
+      maxLength: 254
+    Password:
+      type: string
+      maxLength: 255
+Comment:
+  type: object
+  properties:
+    ID:
+      type: number
+      format: int64
+    HTMLURL:
+      type: string
+    Poster:
+      $ref: '#/User'
+    Body:
+      type: string
+    Created:
+      type: string
+      format: date-time
+    Updated:
+      type: string
+      format: date-time
+
+User:
+  type: object
+  properties:
+    ID:
+      type: number
+      format: int64
+    UserName:
+      type: string
+    FullName:
+      type: string
+    Email:
+      type: string
+    AvatarUrl:
+      type: string
+
+
+Email:
+  type: object
+  properties:
+    Email:
+      type: string
+    Verified:
+      type: boolean
+    Primary:
+      type: boolean
+CreateEmailOption:
+  type: object
+  properties:
+    Emails:
+      type: array
+      items:
+        type: string
+PublicKey:
+  type: object
+  properties:
+    ID:
+      type: number
+      format: int64
+    URL:
+      type: string
+    Title:
+      type: string
+    Created:
+      type: string
+      format: date-time

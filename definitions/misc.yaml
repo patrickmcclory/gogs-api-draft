@@ -1,0 +1,9 @@
+MarkdownOption:
+  type: object
+  properties:
+    Text:
+      type: string
+    Mode:
+      type: string
+    Context:
+      type: string
