@@ -1,0 +1,21 @@
+x-model:
+  basic:
+    - $ref: '#/securityDefinitions/basicAuth'
+  token:
+    - $ref: '#/securityDefinitions/queryTokenAuth'
+    - $ref: '#/securityDefinitions/headerTokenAuth'
+securityDefinitions:
+  basicAuth:
+    type: basic
+  queryTokenAuth:
+    description: |
+      API Key authentication via query string. This key is the same key that can be used within the headerTokenAuth scheme.
+    type: apiKey
+    in: query
+    name: token
+  headerTokenAuth:
+    description: |
+      Identical to queryTokenAuth in terms of the actual token used. When sent in the header, the actual token must be prefixed with 'token ' in the header's value.
+    type: apiKey
+    in: header
+    name: Authorization
