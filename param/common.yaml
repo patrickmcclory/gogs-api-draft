@@ -1,0 +1,25 @@
+Keyword:
+  name: q
+  in: query
+  type: string
+  required: false
+  description: |
+    Keyword for searching in lists of objects.
+OwnerID:
+  name: uid
+  type: number
+  format: int64
+  minimum: 0
+  default: 0
+  in: query
+  description: |
+    Integer-formatted user id.
+PageSize:
+  name: limit
+  type: integer
+  format: int32
+  minimum: 1
+  default: 10
+  in: query
+  description: |
+    Integer-formatted number indicating the size per page of a given pagenated query. Used for determining page size for search and list operations.
