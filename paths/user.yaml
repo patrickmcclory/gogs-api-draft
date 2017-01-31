@@ -1,6 +1,6 @@
 get:
   security:
-    $ref: '#/x-sec/x-model/token'
+    $ref: '#/x-sec/x-model/tokenAuth'
   responses:
     default:
       $ref: '#/x-resp/Default'
