@@ -1,10 +1,9 @@
-parameters:
-  - $ref: '#/x-params/Username'
-post:
+get:
+  security:
+    $ref: '#/x-sec/x-model/tokenAuth'
   responses:
     default:
       $ref: '#/x-resp/Default'
-
 
 # Common References
 x-params:

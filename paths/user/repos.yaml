@@ -1,15 +1,14 @@
-parameters:
-  - $ref: '#/x-params/Username'
+get:
+  responses:
+    default:
+      $ref: '#/x-resp/Default'
 post:
   responses:
     default:
       $ref: '#/x-resp/Default'
-
 
 # Common References
 x-params:
   $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/param/common.yaml#'
 x-resp:
   $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/resp/common.yaml#'
-x-sec:
-  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/sec.yaml#'

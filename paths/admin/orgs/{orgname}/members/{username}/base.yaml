@@ -1,9 +1,0 @@
-parameters:
-  - $ref: '#/x-params/TeamID'
-  - $ref: '#/x-params/Username'
-
-#Common Params
-x-params:
-  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/param/common.yaml#'
-x-resp:
-  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/ec470ea587c34b3b56dc6bdd8dcbdc62dfb30ead/resp/common.yaml#'

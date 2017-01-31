@@ -1,10 +1,18 @@
 parameters:
-  - $ref: '#/x-params/Username'
-post:
+  - $ref: '#/x-params/KeyID'
+get:
+  security:
+    $ref: '#/x-sec/x-model/tokenAuth'
   responses:
     default:
       $ref: '#/x-resp/Default'
 
+delete:
+  security:
+    $ref: '#/x-sec/x-model/tokenAuth'
+  responses:
+    default:
+      $ref: '#/x-resp/Default'
 
 # Common References
 x-params:

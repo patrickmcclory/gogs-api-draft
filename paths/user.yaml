@@ -1,121 +1,15 @@
+/user:
+  get:
+    security:
+      $ref: '#/x-sec/x-model/tokenAuth'
+    responses:
+      default:
+        $ref: '#/x-resp/Default'
+
+# Common References
 x-params:
   $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/param/common.yaml#'
 x-resp:
   $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/resp/common.yaml#'
-swagger: '2.0'
-info:
-  version: "0.1.0"
-  title: Gogs API v2 - User Endpoints
-# security definitions
 x-sec:
   $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/sec.yaml#'
-securityDefinitions:
-  $ref: '#/x-sec/securityDefinitions'
-paths:
-  /user/orgs:
-    get:
-      responses:
-        default:
-          $ref: '#/x-resp/Default'
-  /user:
-    get:
-      security:
-        $ref: '#/x-sec/x-model/tokenAuth'
-      responses:
-        default:
-          $ref: '#/x-resp/Default'
-
-  /user/emails:
-    post:
-      security:
-        $ref: '#/x-sec/x-model/tokenAuth'
-      responses:
-        default:
-          $ref: '#/x-resp/Default'
-    delete:
-      security:
-        $ref: '#/x-sec/x-model/tokenAuth'
-      responses:
-        default:
-          $ref: '#/x-resp/Default'
-
-  /user/followers:
-    get:
-      security:
-        $ref: '#/x-sec/x-model/tokenAuth'
-      responses:
-        default:
-          $ref: '#/x-resp/Default'
-
-  /user/following:
-    get:
-      security:
-        $ref: '#/x-sec/x-model/tokenAuth'
-      responses:
-        default:
-          $ref: '#/x-resp/Default'
-
-  /user/following/{username}:
-    x-params:
-      - $ref: '#/x-params/Username'
-    get:
-      security:
-        $ref: '#/x-sec/x-model/tokenAuth'
-      responses:
-        default:
-          $ref: '#/x-resp/Default'
-
-    put:
-      security:
-        $ref: '#/x-sec/x-model/tokenAuth'
-      responses:
-        default:
-          $ref: '#/x-resp/Default'
-
-    delete:
-      security:
-        $ref: '#/x-sec/x-model/tokenAuth'
-      responses:
-        default:
-          $ref: '#/x-resp/Default'
-
-  /user/keys:
-    get:
-      security:
-        $ref: '#/x-sec/x-model/tokenAuth'
-      responses:
-        default:
-          $ref: '#/x-resp/Default'
-
-    post:
-      security:
-        $ref: '#/x-sec/x-model/tokenAuth'
-      responses:
-        default:
-          $ref: '#/x-resp/Default'
-
-  /user/keys/{id}:
-    x-params:
-      - $ref: '#/x-params/KeyID'
-    get:
-      security:
-        $ref: '#/x-sec/x-model/tokenAuth'
-      responses:
-        default:
-          $ref: '#/x-resp/Default'
-
-    delete:
-      security:
-        $ref: '#/x-sec/x-model/tokenAuth'
-      responses:
-        default:
-          $ref: '#/x-resp/Default'
-  /user/repos:
-    get:
-      responses:
-        default:
-          $ref: '#/x-resp/Default'
-    post:
-      responses:
-        default:
-          $ref: '#/x-resp/Default'

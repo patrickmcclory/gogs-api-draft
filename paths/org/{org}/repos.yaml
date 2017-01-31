@@ -1,5 +1,5 @@
 parameters:
-  - $ref: '#/x-params/Username'
+  - $ref: '#/parameters/OrgName'
 post:
   responses:
     default:

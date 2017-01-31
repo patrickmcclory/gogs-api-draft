@@ -1,9 +1,5 @@
 parameters:
-  - $ref: '#/x-params/Username'
-post:
-  responses:
-    default:
-      $ref: '#/x-resp/Default'
+  - $ref: '#/x-params/OrgName'
 
 
 # Common References

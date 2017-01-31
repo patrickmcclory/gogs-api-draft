@@ -1,10 +1,6 @@
 parameters:
+  - $ref: '#/x-params/TeamID'
   - $ref: '#/x-params/Username'
-post:
-  responses:
-    default:
-      $ref: '#/x-resp/Default'
-
 
 # Common References
 x-params:

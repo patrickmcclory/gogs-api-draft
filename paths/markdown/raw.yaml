@@ -1,5 +1,3 @@
-parameters:
-  - $ref: '#/x-params/Username'
 post:
   responses:
     default:
