@@ -1,0 +1,11 @@
+x-params:
+  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/param/common.yaml#'
+x-resp:
+  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/resp/common.yaml#'
+x-api:
+  /orgs/{orgname}:
+    parameters:
+      - $ref: '#/x-params/OrgName'
+  /orgs/{orgname}/teams:
+    parameters:
+      - $ref: '#/x-params/OrgName'

@@ -1,0 +1,70 @@
+x-params:
+  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/param/common.yaml#'
+x-resp:
+  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/resp/common.yaml#'
+x-api:
+  /users/search:
+    get:
+      responses:
+        default:
+          $ref: '#/x-resp/Default'
+  /users/{username}:
+    get:
+      responses:
+        default:
+          $ref: '#/x-resp/Default'
+  /users/{username}/orgs:
+    parameters:
+      - $ref: '#/x-params/Username'
+    get:
+      responses:
+        default:
+          $ref: '#/x-resp/Default'
+  /users/{username}/tokens:
+    parameters:
+      - $ref: '#/parameters/Username'
+    post:
+      security:
+        $ref: '#/x-sec/x-model/basicAuth'
+      responses:
+        default:
+          $ref: '#/x-resp/Default'
+
+  /users/{username}/keys:
+    parameters:
+      - $ref: '#/parameters/Username'
+    get:
+      security:
+        $ref: '#/x-sec/x-model/tokenAuth'
+      responses:
+        default:
+          $ref: '#/x-resp/Default'
+
+  /users/{username}/followers:
+    parameters:
+      - $ref: '#/parameters/Username'
+    get:
+      security:
+        $ref: '#/x-sec/x-model/tokenAuth'
+      responses:
+        default:
+          $ref: '#/x-resp/Default'
+  /users/{username}/following:
+    parameters:
+      - $ref: '#/parameters/Username'
+    get:
+      security:
+        $ref: '#/x-sec/x-model/tokenAuth'
+      responses:
+        default:
+          $ref: '#/x-resp/Default'
+  /users/{username}/following/{target}:
+    parameters:
+      - $ref: '#/parameters/Username'
+      - $ref: '#/parameters/TargetUsername'
+    get:
+      security:
+        $ref: '#/x-sec/x-model/tokenAuth'
+      responses:
+        default:
+          $ref: '#/x-resp/Default'

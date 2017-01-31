@@ -1,3 +1,4 @@
+# # Query String Parameters Start
 Keyword:
   name: q
   in: query
@@ -23,3 +24,74 @@ PageSize:
   in: query
   description: |
     Integer-formatted number indicating the size per page of a given pagenated query. Used for determining page size for search and list operations.
+# # Path Parameters Start
+Username:
+  name: username
+  in: path
+  type: string
+  required: true
+TargetUsername:
+  name: target
+  in: path
+  type: string
+  required: true
+Collaborator:
+  name: collaborator
+  in: path
+  type: string
+  required: true
+KeyID:
+  name:  id
+  in: path
+  type: string
+  required: true
+OrgName:
+  name: org
+  in: path
+  type: string
+  required: true
+Reponame:
+  name: reponame
+  in: path
+  type: string
+  required: true
+Branchname:
+  name: branchname
+  in: path
+  type: string
+  required: true
+HookID:
+  name: id
+  in: path
+  type: string
+  required: true
+TeamID:
+  name: teamid
+  in: path
+  type: string
+  required: true
+CommentID:
+  name: id
+  in: path
+  type: string
+  required: true
+IssueIndex:
+  name: index
+  in: path
+  type: string
+  required: true
+LabelID:
+  name: id
+  in: path
+  type: string
+  required: true
+MilestoneID:
+  name: id
+  in: path
+  type: string
+  required: true
+EditorconfigFilename:
+  name: filename
+  in: path
+  type: string
+  required: true

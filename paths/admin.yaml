@@ -1,0 +1,61 @@
+x-params:
+  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/param/common.yaml#'
+x-resp:
+  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/resp/common.yaml#'
+x-api:
+  /admin/users:
+    post:
+      responses:
+        default:
+          $ref: '#/x-resp/Default'
+  /admin/users/{username}:
+    parameters:
+      - $ref: '#/x-params/Username'
+    patch:
+      responses:
+        default:
+          $ref: '#/x-resp/Default'
+    delete:
+      responses:
+        default:
+          $ref: '#/x-resp/Default'
+  /admin/users/{username}/keys:
+    parameters:
+      - $ref: '#/x-params/Username'
+    post:
+      responses:
+        default:
+          $ref: '#/x-resp/Default'
+  /admin/users/{username}/orgs:
+    parameters:
+      - $ref: '#/x-params/Username'
+    post:
+      responses:
+        default:
+          $ref: '#/x-resp/Default'
+  /admin/users/{username}/repos:
+    parameters:
+      - $ref: '#/x-params/Username'
+    post:
+      responses:
+        default:
+          $ref: '#/x-resp/Default'
+  /admin/orgs/{orgname}/teams:
+    parameters:
+      - $ref: '#/x-params/OrgName'
+  /admin/teams/{teamid}/members/{username}:
+    parameters:
+      - $ref: '#/x-params/TeamID'
+      - $ref: '#/x-params/Username'
+  /admin/team/{teamid}/repos/{reponame}:
+    parameters:
+      - $ref: '#/x-params/TeamID'
+      - $ref: '#/x-params/Reponame'
+    put:
+      responses:
+        default:
+          $ref: '#/x-resp/Default'
+    delete:
+      responses:
+        default:
+          description: UnexpectedError

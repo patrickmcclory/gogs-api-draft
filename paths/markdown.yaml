@@ -1,0 +1,15 @@
+x-params:
+  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/param/common.yaml#'
+x-resp:
+  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/resp/common.yaml#'
+x-api:
+  /markdown:
+    post:
+      responses:
+        default:
+          $ref: '#/x-resp/Default'
+  /markdown/raw:
+    post:
+      responses:
+        default:
+          $ref: '#/x-resp/Default'

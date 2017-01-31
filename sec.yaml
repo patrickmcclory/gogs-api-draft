@@ -1,9 +1,9 @@
 x-model:
   basic:
-    - $ref: '#/securityDefinitions/basicAuth'
+    - basicAuth: []
   token:
-    - $ref: '#/securityDefinitions/queryTokenAuth'
-    - $ref: '#/securityDefinitions/headerTokenAuth'
+    - queryTokenAuth: []
+    - headerTokenAuth: []
 securityDefinitions:
   basicAuth:
     type: basic

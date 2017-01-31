@@ -1,0 +1,202 @@
+x-params:
+  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/param/common.yaml#'
+x-resp:
+  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/resp/common.yaml#'
+x-api:
+  /repos/search:
+    get:
+      responses:
+        default:
+          description: Unknown Error
+  /repos/migrate:
+    post:
+      security:
+        $ref: '#/x-sec/x-model/tokenAuth'
+      responses:
+        default:
+          $ref: '#/x-resp/Default'
+  /repos/{username}/{reponame}:
+    x-params:
+      - $ref: '#/x-params/Username'
+      - $ref: '#/x-params/Reponame'
+    get:
+      security:
+        $ref: '#/x-sec/x-model/tokenAuth'
+      responses:
+        default:
+          description: Unknown Error
+    delete:
+      security:
+        $ref: '#/x-sec/x-model/tokenAuth'
+      responses:
+        default:
+          $ref: '#/x-resp/Default'
+  /repos/{username}/{reponame}/hooks:
+    x-params:
+      - $ref: '#/x-params/Username'
+      - $ref: '#/x-params/Reponame'
+    get:
+      security:
+        $ref: '#/x-sec/x-model/tokenAuth'
+      responses:
+        default:
+          $ref: '#/x-resp/Default'
+
+    post:
+      security:
+        $ref: '#/x-sec/x-model/tokenAuth'
+      responses:
+        default:
+          $ref: '#/x-resp/Default'
+  /repos/{username}/{reponame}/hooks/{id}:
+    x-params:
+      - $ref: '#/x-params/Username'
+      - $ref: '#/x-params/Reponame'
+      - $ref: '#/x-params/HookID'
+    patch:
+      security:
+        $ref: '#/x-sec/x-model/tokenAuth'
+      responses:
+        default:
+          $ref: '#/x-resp/Default'
+    delete:
+      security:
+        $ref: '#/x-sec/x-model/tokenAuth'
+      responses:
+        default:
+          $ref: '#/x-resp/Default'
+  /repos/{username}/{reponame}/collaborators/{collaborator}:
+    x-params:
+      - $ref: '#/x-params/Username'
+      - $ref: '#/x-params/Reponame'
+      - $ref: '#/x-params/Collaborator'
+    put:
+      security:
+        $ref: '#/x-sec/x-model/tokenAuth'
+      responses:
+        default:
+          $ref: '#/x-resp/Default'
+  /repos/{username}/{reponame}/raw/*:
+    x-params:
+      - $ref: '#/x-params/Username'
+      - $ref: '#/x-params/Reponame'
+    get:
+      security:
+        $ref: '#/x-sec/x-model/tokenAuth'
+      responses:
+        default:
+          $ref: '#/x-resp/Default'
+  /repos/{username}/{reponame}/archive/*:
+    x-params:
+      - $ref: '#/x-params/Username'
+      - $ref: '#/x-params/Reponame'
+    get:
+      security:
+        $ref: '#/x-sec/x-model/tokenAuth'
+      responses:
+        default:
+          $ref: '#/x-resp/Default'
+  /repos/{username}/{reponame}/forks:
+    x-params:
+      - $ref: '#/x-params/Username'
+      - $ref: '#/x-params/Reponame'
+    get:
+      security:
+        $ref: '#/x-sec/x-model/tokenAuth'
+      responses:
+        default:
+          $ref: '#/x-resp/Default'
+  /repos/{username}/{reponame}/branches:
+    x-params:
+      - $ref: '#/x-params/Username'
+      - $ref: '#/x-params/Reponame'
+    get:
+      security:
+        $ref: '#/x-sec/x-model/tokenAuth'
+      responses:
+        default:
+          $ref: '#/x-resp/Default'
+
+  /repos/{username}/{reponame}/branches/{branchname}:
+    x-params:
+      - $ref: '#/x-params/Username'
+      - $ref: '#/x-params/Reponame'
+      - $ref: '#/x-params/Branchname'
+    get:
+      security:
+        $ref: '#/x-sec/x-model/tokenAuth'
+      responses:
+        default:
+          $ref: '#/x-resp/Default'
+  /repos/{username}/{reponame}/keys:
+    x-params:
+      - $ref: '#/x-params/Username'
+      - $ref: '#/x-params/Reponame'
+  /repos/{username}/{reponame}/keys/{id}:
+    x-params:
+      - $ref: '#/x-params/Username'
+      - $ref: '#/x-params/Reponame'
+      - $ref: '#/x-params/KeyID'
+  /repos/{username}/{reponame}/issues:
+    x-params:
+      - $ref: '#/x-params/Username'
+      - $ref: '#/x-params/Reponame'
+  /repos/{username}/{reponame}/issues/comments:
+    x-params:
+      - $ref: '#/x-params/Username'
+      - $ref: '#/x-params/Reponame'
+  /repos/{username}/{reponame}/issues/comments/{id}:
+    x-params:
+      - $ref: '#/x-params/Username'
+      - $ref: '#/x-params/Reponame'
+      - $ref: '#/x-params/CommentID'
+  /repos/{username}/{reponame}/issues/{index}:
+    x-params:
+      - $ref: '#/x-params/Username'
+      - $ref: '#/x-params/Reponame'
+      - $ref: '#/x-params/IssueIndex'
+  /repos/{username}/{reponame}/issues/{index}/comments:
+    x-params:
+      - $ref: '#/x-params/Username'
+      - $ref: '#/x-params/Reponame'
+      - $ref: '#/x-params/IssueIndex'
+  /repos/{username}/{reponame}/issues/{index}/comments/{id}:
+    x-params:
+      - $ref: '#/x-params/Username'
+      - $ref: '#/x-params/Reponame'
+      - $ref: '#/x-params/IssueIndex'
+      - $ref: '#/x-params/CommentID'
+  /repos/{username}/{reponame}/issues/{index}/labels:
+    x-params:
+      - $ref: '#/x-params/Username'
+      - $ref: '#/x-params/Reponame'
+      - $ref: '#/x-params/IssueIndex'
+  /repos/{username}/{reponame}/issues/{index}/labels/{id}:
+    x-params:
+      - $ref: '#/x-params/Username'
+      - $ref: '#/x-params/Reponame'
+      - $ref: '#/x-params/IssueIndex'
+      - $ref: '#/x-params/LabelID'
+  /repos/{username}/{reponame}/labels:
+    x-params:
+      - $ref: '#/x-params/Username'
+      - $ref: '#/x-params/Reponame'
+  /repos/{username}/{reponame}/labels/{id}:
+    x-params:
+      - $ref: '#/x-params/Username'
+      - $ref: '#/x-params/Reponame'
+      - $ref: '#/x-params/LabelID'
+  /repos/{username}/{reponame}/milestones:
+    x-params:
+      - $ref: '#/x-params/Username'
+      - $ref: '#/x-params/Reponame'
+  /repos/{username}/{reponame}/milestones/{id}:
+    x-params:
+      - $ref: '#/x-params/Username'
+      - $ref: '#/x-params/Reponame'
+      - $ref: '#/x-params/MilestoneID'
+  /repos/{username}/{reponame}/editorconfig/{filename}:
+    x-params:
+      - $ref: '#/x-params/Username'
+      - $ref: '#/x-params/Reponame'
+      - $ref: '#/x-params/EditorconfigFilename'
