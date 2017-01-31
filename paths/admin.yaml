@@ -1,8 +1,13 @@
-x-params:
-  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/param/common.yaml#'
-x-resp:
-  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/resp/common.yaml#'
-x-api:
+swagger: '2.0'
+info:
+  version: "0.1.0"
+  title: Gogs API v2 - Admin Endpoints
+# security definitions
+x-sec:
+  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/sec.yaml#'
+securityDefinitions:
+  $ref: '#/x-sec/securityDefinitions'
+paths:
   /admin/users:
     post:
       responses:
@@ -59,3 +64,8 @@ x-api:
       responses:
         default:
           description: UnexpectedError
+#Common Params
+x-params:
+  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/param/common.yaml#'
+x-resp:
+  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/ec470ea587c34b3b56dc6bdd8dcbdc62dfb30ead/resp/common.yaml#'

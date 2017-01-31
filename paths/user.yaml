@@ -2,7 +2,16 @@ x-params:
   $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/param/common.yaml#'
 x-resp:
   $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/resp/common.yaml#'
-x-api:
+swagger: '2.0'
+info:
+  version: "0.1.0"
+  title: Gogs API v2 - User Endpoints
+# security definitions
+x-sec:
+  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/sec.yaml#'
+securityDefinitions:
+  $ref: '#/x-sec/securityDefinitions'
+paths:
   /user/orgs:
     get:
       responses:
