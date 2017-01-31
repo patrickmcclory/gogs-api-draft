@@ -1,30 +1,41 @@
 swagger: '2.0'
 info:
-  version: "0.1.0"
-  title: Gogs API v2
+  version: "1.0.0"
+  title: Gogs API v1
 # security definitions
 x-sec:
   $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/sec.yaml#'
 securityDefinitions:
   $ref: '#/x-sec/securityDefinitions'
-paths: {}
+basePath: /v1
+paths:
+  /admin/users:
+    post:
+      $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/paths/admin/users.yaml#/post'
+  /admin/users/{username}:
+    parameters:
+      $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/paths/admin/users/%7Busername%7D.yaml#/parameters'
+    patch:
+      $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/paths/admin/users/%7Busername%7D.yaml#/patch'
+    delete:
+      $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/paths/admin/users/%7Busername%7D.yaml#/delete'
+  /admin/users/{username}/keys:
+    parameters:
+      $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/paths/admin/users/%7Busername%7D/keys.yaml#/parameters'
+    post:
+      $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/paths/admin/users/%7Busername%7D/keys.yaml#/post'
+  /admin/users/{username}/orgs:
+    parameters:
+      $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/paths/admin/users/%7Busername%7D/orgs.yaml#/parameters'
+    post:
+      $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/paths/admin/users/%7Busername%7D/orgs.yaml#/post'
+  /admin/users/{username}/repos:
+    parameters:
+      $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/paths/admin/users/%7Busername%7D/repos.yaml#/parameters'
+    post:
+      $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/paths/admin/users/%7Busername%7D/repos.yaml#/post'
 #Common Params
-x-param:
+x-params:
   $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/param/common.yaml#'
-#Common Definitions
-x-base:
-  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/defs/base.yaml#'
-x-issue:
-  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/defs/issue.yaml#'
-x-milestone:
-  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/defs/milestone.yaml#'
-x-misc:
-  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/defs/misc.yaml#'
-x-org:
-  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/defs/organization.yaml#'
-x-pr:
-  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/defs/pr.yaml#'
-x-repo:
-  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/defs/repo.yaml#'
-x-user:
-  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/defs/user.yaml#'
+x-resp:
+  $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/ec470ea587c34b3b56dc6bdd8dcbdc62dfb30ead/resp/common.yaml#'
