@@ -5,6 +5,7 @@ info:
 # security definitions
 x-sec:
   $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/sec.yaml#'
+
 securityDefinitions:
   $ref: '#/x-sec/securityDefinitions'
 basePath: /v1
@@ -34,8 +35,42 @@ paths:
       $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/paths/admin/users/%7Busername%7D/repos.yaml#/parameters'
     post:
       $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/paths/admin/users/%7Busername%7D/repos.yaml#/post'
+  /admin/orgs/{orgname}/teams:
+    parameters:
+      $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/paths/admin/orgs/%7Borgname%7D/teams.yaml#/parameters'
+  /admin/teams/{teamid}/members/{username}:
+    parameters:
+      $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/paths/admin/teams/%7Bteamid%7D/members/%7Busername%7D.yaml#/parameters'
+  /admin/teams/{teamid}/repos/{reponame}:
+    parameters:
+      $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/paths/admin/teams/%7Bteamid%7D/repos/%7Breponame%7D.yaml#/parameters'
+    put:
+      $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/paths/admin/teams/%7Bteamid%7D/repos/%7Breponame%7D.yaml#/put'
+    delete:
+      $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/paths/admin/teams/%7Bteamid%7D/repos/%7Breponame%7D.yaml#/delete'
+  /markdown:
+    post:
+      $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/paths/markdown.yaml#/post'
+  /markdown/raw:
+    post:
+      $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/paths/markdown/raw.yaml#/post'
+  /user:
+    get:
+      $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/paths/user.yaml#/get'
+  /user/emails:
+    post:
+      $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/paths/user/emails.yaml#/post'
+    delete:
+      $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/paths/user/emails.yaml#/delete'
+  /user/followers:
+    get:
+      $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/paths/user/followers.yaml#/get'
+  /user/following:
+    get:
+      $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/paths/user/following.yaml#/get'
 #Common Params
 x-params:
   $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/master/param/common.yaml#'
 x-resp:
   $ref: 'https://raw.githubusercontent.com/patrickmcclory/gogs-api-draft/ec470ea587c34b3b56dc6bdd8dcbdc62dfb30ead/resp/common.yaml#'
+#Common Definitions
